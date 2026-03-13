@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact RA.devWorks to discuss your web or mobile app development project."
+    />
+    <title>Contact | RA.devWorks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand" aria-label="RA.devWorks home">
+          <span class="brand-icon" aria-hidden="true"></span>
+          <span class="brand-text">RA.devWorks</span>
+        </a>
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+          <a href="index.html" data-nav="index">Home</a>
+          <a href="about.html" data-nav="about">About</a>
+          <a href="services.html" data-nav="services">Services</a>
+          <a href="contact.html" data-nav="contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="section hero hero-short">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Contact</p>
+            <h1>Tell us what you are building.</h1>
+            <p>
+              Share a few details and we will prepare a focused, practical
+              next-step recommendation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container contact-layout">
+          <article class="card reveal">
+            <h2>Project Inquiry Form</h2>
+            <form id="contact-form" novalidate>
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+                <p id="name-error" class="field-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
+                <p id="email-error" class="field-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="projectType">Project Type</label>
+                <select id="projectType" name="projectType" required>
+                  <option value="">Select a project type</option>
+                  <option value="web-app">Web App</option>
+                  <option value="mobile-app">Mobile App</option>
+                  <option value="mvp-build">MVP Build</option>
+                  <option value="maintenance">Maintenance & Support</option>
+                </select>
+                <p
+                  id="projectType-error"
+                  class="field-error"
+                  aria-live="polite"
+                ></p>
+              </div>
+
+              <div class="field">
+                <label for="message">Project Details</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+                <p
+                  id="message-error"
+                  class="field-error"
+                  aria-live="polite"
+                ></p>
+              </div>
+
+              <button class="btn btn-primary" type="submit">
+                Prepare My Request
+              </button>
+              <p id="form-status" class="form-status" aria-live="polite"></p>
+            </form>
+          </article>
+
+          <aside class="card reveal">
+            <h2>What to Include</h2>
+            <ul class="contact-tips">
+              <li>Your business goal and target users</li>
+              <li>Timeline expectations and launch target</li>
+              <li>Core features and integrations needed</li>
+              <li>Any existing app, stack, or constraints</li>
+            </ul>
+            <p>
+              We usually respond with next-step guidance within one business
+              day.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <p class="footer-brand">RA.devWorks</p>
+          <p>Building dependable digital products with speed and intent.</p>
+        </div>
+        <nav aria-label="Footer">
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <a class="btn btn-primary footer-cta" href="contact.html"
+          >Request a Proposal</a
+        >
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
