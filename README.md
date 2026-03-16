@@ -1,4 +1,4 @@
-# RA.devWorks Static Website
+# RA DevWorks Static Website
 
 This is a static multi-page website (`Home`, `About`, `Services`, `Contact`) with shared assets:
 
