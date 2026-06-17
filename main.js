@@ -136,7 +136,7 @@ function initContactFormValidation() {
     });
   });
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     let firstInvalidInput = null;
     let isFormValid = true;
@@ -167,6 +167,73 @@ function initContactFormValidation() {
       status.className = "form-status success";
     }
 
-    form.submit();
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    try {
+      const result = await submitContactForm(form);
+
+      if (!result.ok) {
+        throw new Error(result.message || "Unable to send your request right now.");
+      }
+
+      if (status) {
+        status.textContent = result.message || "Thanks. Your request has been sent.";
+        status.className = "form-status success";
+      }
+
+      form.reset();
+      Object.keys(fields).forEach((key) => {
+        fields[key].input.classList.remove("input-error");
+        fields[key].error.textContent = "";
+      });
+    } catch (error) {
+      if (status) {
+        status.textContent = error.message || "Unable to send your request right now.";
+        status.className = "form-status error";
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
+    }
   });
+}
+
+async function submitContactForm(form) {
+  const formData = new FormData(form);
+  const payload = Object.fromEntries(formData.entries());
+
+  if (
+    payload.access_key === "REPLACE_WITH_WEB3FORMS_ACCESS_KEY" ||
+    !payload.access_key
+  ) {
+    return {
+      ok: false,
+      message: "Contact form is not configured yet. Add your Web3Forms access key."
+    };
+  }
+
+  const response = await fetch(form.action, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify(payload)
+  });
+
+  let data = {};
+  try {
+    data = await response.json();
+  } catch (error) {
+    data = {};
+  }
+
+  return {
+    ok: response.ok && data.success !== false,
+    message: data.message || "Thanks. Your request has been sent."
+  };
 }
