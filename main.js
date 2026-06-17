@@ -163,14 +163,10 @@ function initContactFormValidation() {
     }
 
     if (status) {
-      status.textContent = "Your message is ready. This demo form does not submit to a server yet.";
+      status.textContent = "Sending your request...";
       status.className = "form-status success";
     }
 
-    form.reset();
-    Object.keys(fields).forEach((key) => {
-      fields[key].input.classList.remove("input-error");
-      fields[key].error.textContent = "";
-    });
+    form.submit();
   });
 }

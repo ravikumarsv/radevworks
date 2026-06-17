@@ -8,6 +8,9 @@
       content="Contact RA DevWorks to discuss your web or mobile app development project."
     />
     <title>Contact | RA DevWorks</title>
+    <link rel="icon" type="image/png" href="assets/logo-transparent.png" />
+    <link rel="apple-touch-icon" href="assets/logo-transparent.png" />
+    <meta name="theme-color" content="#0b4f4a" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,7 +26,7 @@
       <div class="container header-inner">
         <a href="index.html" class="brand" aria-label="RA DevWorks home">
           <span class="brand-logo-image" aria-hidden="true"></span>
-          <span class="brand-text"> DevWorks</span>
+          <span class="brand-text">DevWorks</span>
         </a>
         <button
           class="menu-toggle"
@@ -61,7 +64,27 @@
         <div class="container contact-layout">
           <article class="card reveal">
             <h2>Project Inquiry Form</h2>
-            <form id="contact-form" novalidate>
+            <form
+              id="contact-form"
+              action="https://formsubmit.co/developer@radevworks.com"
+              method="POST"
+              novalidate
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New RA DevWorks project inquiry"
+              />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input
+                class="form-honey"
+                type="text"
+                name="_honey"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
               <div class="field">
                 <label for="name">Full Name</label>
                 <input
@@ -136,6 +159,9 @@
               We usually respond with next-step guidance within one business
               day.
             </p>
+            <a class="contact-email" href="mailto:developer@radevworks.com"
+              >developer@radevworks.com</a
+            >
           </aside>
         </div>
       </section>

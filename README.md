@@ -72,5 +72,5 @@ git push -u origin main
 
 ## Notes
 
-- Contact form is client-side validation only and does not submit to a backend.
-- If you want production form submissions, integrate Formspree/Web3Forms or a custom API endpoint.
+- Contact form submissions post to FormSubmit and are sent to `developer@radevworks.com`.
+- FormSubmit may ask the email owner to confirm the address the first time a form is submitted.
